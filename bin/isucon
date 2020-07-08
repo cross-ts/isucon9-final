@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+export LANGUAGE=${LANGUAGE:-ruby}
+
+dc_command=$@
+
+if [[ ${dc_command} = "" ]]; then
+  echo "docker-compose command is required"
+  exit 1
+fi
+
+command docker-compose \
+  -f webapp/docker-compose.yml \
+  -f webapp/docker-compose.${LANGUAGE}.yml \
+  ${dc_command}
