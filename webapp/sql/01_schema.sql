@@ -60,13 +60,15 @@ CREATE TABLE `station_master` (
 
 DROP TABLE IF EXISTS `train_master`;
 CREATE TABLE `train_master` (
+  `id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `date` date NOT NULL,
   `departure_at` time NOT NULL,
   `train_class` varchar(100) NOT NULL,
   `train_name` varchar(100) NOT NULL,
   `start_station` varchar(100) NOT NULL,
   `last_station` varchar(100) NOT NULL,
-  `is_nobori` tinyint(1) NOT NULL
+  `is_nobori` tinyint(1) NOT NULL,
+  KEY `idx_train_master` (`date`,`train_class`,`train_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `train_timetable_master`;

@@ -283,14 +283,14 @@ module Isutrain
 
       train_list = if params[:train_class].nil? || params[:train_class].empty?
         db.xquery(
-          'SELECT * FROM `train_master` WHERE `date` = ? AND `train_class` IN (?) AND `is_nobori` = ?',
+          'SELECT * FROM `train_master` WHERE `date` = ? AND `train_class` IN (?) AND `is_nobori` = ? ORDER BY `id`',
           date.strftime('%Y/%m/%d'),
           usable_train_class_list,
           is_nobori,
         )
       else
         db.xquery(
-          'SELECT * FROM `train_master` WHERE `date` = ? AND `train_class` IN (?) AND `is_nobori` = ? AND `train_class` = ?',
+          'SELECT * FROM `train_master` WHERE `date` = ? AND `train_class` IN (?) AND `is_nobori` = ? AND `train_class` = ? ORDER BY `id`',
           date.strftime('%Y/%m/%d'),
           usable_train_class_list,
           is_nobori,
