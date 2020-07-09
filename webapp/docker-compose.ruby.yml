@@ -6,6 +6,7 @@ services:
     build: ./ruby
     volumes:
       - ./ruby:/opt/webapp
+      - ./logs/webapp/stackprof/:/tmp/webapp/stackprof/
     env_file:
       - ".env"
     environment:
