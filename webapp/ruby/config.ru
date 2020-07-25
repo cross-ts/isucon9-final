@@ -13,4 +13,8 @@ use StackProf::Middleware, enabled:    true,
                            save_every: stackprof_save_every,
                            path:       stackprof_path
 
+require 'newrelic_rpm'
+require 'sinatra/config_file'
+config_file 'config/newrelic.yml'
+
 run Isutrain::App

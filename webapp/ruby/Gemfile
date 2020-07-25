@@ -8,6 +8,7 @@ gem 'mysql2-cs-bind'
 group :development do
   gem 'sinatra-contrib'
   gem 'stackprof'
+  gem 'newrelic_rpm'
 end
 
 group :test do

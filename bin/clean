@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+: | sudo tee webapp/logs/nginx/access.log
+: | sudo tee webapp/logs/mysql/slow-query.log
+sudo rm webapp/logs/webapp/stackprof/*
