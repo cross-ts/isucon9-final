@@ -6,6 +6,7 @@ require 'securerandom'
 require 'sinatra/base'
 require 'mysql2'
 require 'mysql2-cs-bind'
+require 'redis'
 
 require './utils'
 
@@ -41,6 +42,13 @@ module Isutrain
           cast_booleans: true,
           symbolize_keys: true,
           reconnect: true,
+        )
+      end
+
+      def redis
+        Thread.current[:redis] ||= Redis.new(
+          host: ENV['REDIS_HOST'] || '127.0.0.1',
+          port: ENV['REDIS_PORT'] || '6379',
         )
       end
 
